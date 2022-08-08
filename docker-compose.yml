@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  db:
+    image: mongo
+    ports:
+      - 27000:27017
+  
+  youtube:
+    image: youtube
+    ports:
+      - 5001:5000
+  
+  front:
+    image: front
+    ports:
+      - 5002:80
+
+  fvrt:
+    image: fvrt
+    ports:
+      - 5003:9000
+    environment:
+      MONGODB_SERVER: "mongodb://db:27017/FavroiteDB"
+  
+  auth:
+    image: auth
+    ports:
+      - 5004:7000
+    environment:
+      MONGODB_SERVER: "mongodb://db:27017/AuthenticationDB"

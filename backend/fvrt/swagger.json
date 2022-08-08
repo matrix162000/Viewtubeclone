@@ -1,0 +1,120 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Favourites API",
+        "description": "Favourites API Developed In expressJs",
+        "version": "1.0"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "host": "localhost:9000",
+    "basePath": "/api/favorite",
+    "paths": {
+        "/getFavorite": {
+            "get": {
+                "x-swagger-router-controller": "favoriteControllers",
+                "tags": [
+                    "Get All favorites Video of a User"
+                ],
+                "description": "Returns all Favourites of a particular user from Mongo database",
+                "parameters": [
+                    {
+                        "name": "userid",
+                        "in": "query",
+                        "required": true,
+                        "description": "ID of user for which we want to find favourites",
+                        "type": "string"
+                    }
+                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/addToFavorite": {
+            "post": {
+              "x-swagger-router-controller": "favoriteControllers",
+              "tags": [
+                  "Post item into favorites list of a particular user"
+              ],
+              "description": "Add item into favourites of a user",
+              "parameters": [
+                  {
+                      "name": "info",
+                      "in": "body",
+                      "required": true,
+                      "description": "ID of user and data that we want to add"
+                      
+                  }
+
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "$ref": "#/definitions/FavoriteModel"
+                      }
+                  }
+              }
+          }
+        },
+        "/removeFavorite": {
+          "put": {
+            "x-swagger-router-controller": "favoriteControllers",
+            "tags": [
+                "Remove item from Favorite list of a particular user"
+            ],
+            "description": "Remove food-item from list",
+            "parameters": [
+              {
+                  "name": "info",
+                  "in": "body",
+                  "required": true,
+                  "description": "ID of user and label of item that we want to Remove"
+                  
+              }
+
+          ],
+          "responses": {
+              "200": {
+                  "description": "OK",
+                  "schema": {
+                      "$ref": "#/definitions/FavoriteModel"
+                  }
+              }
+          }
+
+          } 
+        }
+
+
+    },
+
+    "definitions": {
+        "FavoriteModel": {
+            "required": [
+                "userid",
+                "FavoriteItemArr"
+                
+            ],
+            "properties": {
+                "userid": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "FavoriteItemArr":
+                  {
+                    "type": "array"
+                  }
+
+                
+            }
+        }
+
+    }
+
+}

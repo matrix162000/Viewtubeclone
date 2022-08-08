@@ -1,0 +1,69 @@
+{
+    "swagger": "2.0",
+    "info":{
+        "title": "YouTube Api",
+        "description": "youtube api developed in express js",
+        "version":"1.0"
+    },
+    "produces":[
+        "application/json"
+    ],
+    "host": "localhost:5000",
+    "basepath":"/api",
+    "paths":{
+        "/search":{
+            "get":{
+                "x-swagger-router-controller":"controller",
+                "tags":[
+                    "Get all search results"
+                ],
+                "description": "Return all search results",
+                "parameters":[
+                    {
+                        "name": "search_query",
+                        "in": "query",
+                        "required": true,
+                        "description": "videos on search",
+                        "type": "string"
+                    }
+                ],
+                "response":{
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/mostpopular":{
+            "get":{
+                "x-swagger-router-controller":"server",
+                "tags":[
+                    "Get all popular videos"
+                ],
+                "description": "Return all popular videos",
+                "parameters":[],
+                "response":{
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/category":{
+            "get":{
+                "x-swagger-router-controller":"server",
+                "tags":[
+                    "Get all videos by category"
+                ],
+                "description": "Return all videos based on category",
+                "parameters":[],
+                "response":{
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+
+    }
+}

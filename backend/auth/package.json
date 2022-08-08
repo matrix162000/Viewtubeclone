@@ -1,0 +1,32 @@
+{
+  "name": "userinfo",
+  "version": "1.0.0",
+  "description": "For Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server"
+  },
+  "author": "Sachin Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^10.0.0",
+    "mongoose": "^6.4.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^4.5.0",
+    "uuid": "^8.3.2"
+  }
+}

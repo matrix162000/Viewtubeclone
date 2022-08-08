@@ -1,0 +1,249 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Search feature API",
+      "description": "API developed in ExpressJS to fetch video and add video in fvrt list",
+      "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "host": "localhost:7000",
+    "basePath": "/api/auth",
+    "paths": {
+        "/register": {
+            "post": {
+              "x-swagger-router-controller": "To Register A New User",
+              "tags": ["Register A New User"],
+              "description": "User Registration",
+              "parameters": [
+                {
+                  "in": "body",
+                  "name": "Register User",
+                  "description": "Creating new Account",
+                  "schema": {
+                    "$ref": "#/definitions/User"
+                  }
+                  
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "New User Registered  SuccessFully",
+                  "schema": {
+                    "$ref": "#/definitions/userModel"
+                  }
+                },
+                "404": {
+                  "description": "Email Already Exist"
+                }
+              }
+            }
+          },
+      "/login": {
+        "post": {
+          "x-swagger-router-controller": "Login",
+          "tags": ["Login To Website"],
+          "description": "Allow User To Login With Right Credential",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Login Credentials",
+              "description": "User Email and Password",
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "rnm@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "Vilen@006"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User Login to Successfully"
+            },
+            "404": {
+              "description": "Provided invalid email or password"
+            }
+          }
+        }
+      },
+
+      "/profile": {
+        "get": {
+          "x-swagger-router-controller": "Get User Profile",
+          "tags": ["Get User Details"],
+          "description": "Returns User profile",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Unique Id of the User",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User Profile object"
+            },
+            "404": {
+              "description": "Error"
+            }
+          }
+        }
+      },
+      "/editProfile": {
+        "post": {
+          "x-swagger-router-controller": "updateProfile",
+          "tags": ["Update Profile"],
+          "description": "User profile update",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Jwt Token",
+              "type": "string",
+              "required": true
+            },{
+              "in": "body",
+              "name": "User Details",
+              "description": "Update Profile",
+              "schema": {
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "required": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Your profile Change Succesfully"
+            },
+            "404": {
+              "description": "Error"
+            }
+          }
+        }
+      },
+      "/changePassword": {
+        "post": {
+          "x-swagger-router-controller": "changepassword",
+          "tags": ["Change Password"],
+          "description": "Returns User profile",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "description": "Jwt Token",
+              "type": "string",
+              "required": true
+            },{
+              "in": "body",
+              "name": "User Password",
+              "description": "Change Password",
+              "schema": {
+                "properties": {
+                    "password": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "newPassword": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Your PassWord Change Succesfully"
+            },
+            "404": {
+              "description": "Please Check Your Current Password"
+            }
+          }
+        }
+      },
+  
+
+           "/resetPassword": {
+        "post": {
+          "x-swagger-router-controller": "Reset Password",
+          "tags": ["Reset Password"],
+          "description": "Reset Password",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "email",
+              "description": "Enter Secret Question",
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "required": true
+                  },"secretQuestion": {
+                    "type": "string",
+                    "required": true
+                  },"newPassword": {
+                    "type": "string",
+                    "required": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Your Password Reset Successfully"
+            },
+            "404": {
+              "description": "Wrong Email Or Secret Answer"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "UserModel": {
+        "required": ["_id", "firstName", "lastName", "gender","email","password","secretQuestion"],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "password": {
+            "type": "string"
+          },
+          "secretQuestion": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  

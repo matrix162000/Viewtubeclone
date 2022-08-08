@@ -1,0 +1,20 @@
+.video-grid{
+    margin-left: 250PX;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden !important;
+    min-width: 250px;
+}
+.landing{
+    display: flex;
+    /* margin-top: 70px; */
+    overflow: hidden !important;
+    z-index: 0;
+    
+}
+@media screen and (max-width: 800px) {
+   .video-grid{
+    margin-left: 100px;
+   }
+  }

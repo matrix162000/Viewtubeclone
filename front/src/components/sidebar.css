@@ -1,0 +1,39 @@
+.sidebar{
+    height:100vh;
+    background-color:rgb(33,37,41);
+    width:150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 60px;
+
+    
+}
+@media screen and (max-width: 800px) {
+    .sidebar {
+      width: 100px;
+    }
+  }
+.landing{
+    display: flex;
+}
+.sidenav ul{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-right: 25px;
+    margin-top: -70px;
+    
+}
+
+.sidebar a{
+    text-decoration: none;
+    color: white;
+}
+.sidebar a:hover{
+    color: white;
+}

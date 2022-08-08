@@ -1,0 +1,103 @@
+.slideImg{
+    
+}
+.Product-description{
+    text-align: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5em;
+
+}
+.Product-description h1{
+    margin-top: 0.5em;
+    font-size: 4em;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.description-details{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detail{
+    border-radius: 5px;
+    display: flex;
+    margin: 0 2em;
+    flex-direction: column;
+}
+.carImg{
+    height: 75vh;
+}
+.founderImg img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.section2{
+    text-align: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5em;
+}
+.founder-detail{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.founder1{
+    border-radius: 5px;
+    display: flex;
+    margin: 0 2em;
+}
+.section-heading{
+    margin-top: 1em;
+    text-align: center;
+}
+.section-heading h1{
+    margin-top: 0.5em;
+    font-size: 5em;
+    font-family: 'Courier New', Courier, monospace;
+}
+@media screen and (max-width: 745px) {
+    
+
+}
+@media screen and (max-width: 992px) {
+        .section2{
+            flex-direction: column;
+           
+            margin-top: 15%;
+        }
+        .section-heading h1{
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        .Product-description h1{
+            font-size: 3em;
+        }
+        .section-heading{
+            margin-top:0.5em;
+        }
+        .founder1{
+             margin:20px;
+        }
+        .description-details{
+            flex-direction: column;
+        }
+        .founder-detail{
+            flex-direction: column;
+        }
+        .detail{
+            margin: 20px;
+        }
+        .Product-description{
+            padding-top:1em ;
+            margin-bottom: 10em;
+        }
+    }
+  

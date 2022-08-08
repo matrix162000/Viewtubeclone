@@ -1,0 +1,16 @@
+.landing-nav{
+    background-color: black;
+}
+.dropMenu button{
+    color: white;
+}
+.searchIcon{
+    color:white;
+}
+.dropMenu button:hover{
+    color: white;
+}
+.landing-nav img{
+    position: absolute;
+    left: 50px;
+}
